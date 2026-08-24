@@ -24,18 +24,18 @@ This file is the authoritative project-level entry point for agents working in t
 
 Use this table before editing. Read [`docs/BOUNDARIES.md`](docs/BOUNDARIES.md) when ownership is not obvious.
 
-| Change | Primary location or owner |
-| --- | --- |
-| Dependency pin or bundled plugin activation | This repository: the relevant dependency in `Gemfile` **and** plugin registration in `_config.yml`; keep both lists aligned |
-| Site identity, URL, feature flag, or site-wide configuration | This repository: `_config.yml`, subject to the plugin activation contract below |
-| Personal content, bibliography, and data | This repository: `_pages`, `_posts`, `_projects`, `_news`, `_teachings`, `_books`, `_bibliography`, `_data`, and scoped assets |
-| Project rules and long-form documentation | `AGENTS.md` for mandatory agent rules; `docs/` for detailed guidance |
-| Cross-plugin integration or visual regression test | This repository: `test/integration_*.sh` or `test/visual/` |
-| Base layout, shared include, publication/repository card, or common runtime primitive | `al_folio_core`; use a personal-site override only under the override policy below |
-| Liquid tag, filter, generator, or rendered feature behavior | The gem that registers or owns it; consult the delegation table in `docs/ARCHITECTURE.md` |
-| Search, comments, cookies, icons, CV, Distill, analytics, citations, images, math, charts, newsletter, email protection, RTL, or marimo runtime | The corresponding `al-*` feature gem listed in `docs/BOUNDARIES.md` |
-| Component/unit test for gem-owned behavior | The owning gem repository, not this personal-site repository |
-| New reusable feature without an owner | Propose a standalone plugin/owner first; do not embed a new shared runtime pipeline in this site by default |
+| Change                                                                                                                                          | Primary location or owner                                                                                                      |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Dependency pin or bundled plugin activation                                                                                                     | This repository: the relevant dependency in `Gemfile` **and** plugin registration in `_config.yml`; keep both lists aligned    |
+| Site identity, URL, feature flag, or site-wide configuration                                                                                    | This repository: `_config.yml`, subject to the plugin activation contract below                                                |
+| Personal content, bibliography, and data                                                                                                        | This repository: `_pages`, `_posts`, `_projects`, `_news`, `_teachings`, `_books`, `_bibliography`, `_data`, and scoped assets |
+| Project rules and long-form documentation                                                                                                       | `AGENTS.md` for mandatory agent rules; `docs/` for detailed guidance                                                           |
+| Cross-plugin integration or visual regression test                                                                                              | This repository: `test/integration_*.sh` or `test/visual/`                                                                     |
+| Base layout, shared include, publication/repository card, or common runtime primitive                                                           | `al_folio_core`; use a personal-site override only under the override policy below                                             |
+| Liquid tag, filter, generator, or rendered feature behavior                                                                                     | The gem that registers or owns it; consult the delegation table in `docs/ARCHITECTURE.md`                                      |
+| Search, comments, cookies, icons, CV, Distill, analytics, citations, images, math, charts, newsletter, email protection, RTL, or marimo runtime | The corresponding `al-*` feature gem listed in `docs/BOUNDARIES.md`                                                            |
+| Component/unit test for gem-owned behavior                                                                                                      | The owning gem repository, not this personal-site repository                                                                   |
+| New reusable feature without an owner                                                                                                           | Propose a standalone plugin/owner first; do not embed a new shared runtime pipeline in this site by default                    |
 
 If required information or ownership is uncertain, do not guess. Report the uncertainty and request direction when it materially affects the result.
 
@@ -103,14 +103,14 @@ Keep the required `al_folio` v1 contract keys in `_config.yml`; run the upgrade 
 
 Do not run the entire suite for every edit. Use the smallest relevant set and report anything that could not be verified.
 
-| Change type | Expected validation |
-| --- | --- |
-| Documentation only | `git diff --check`; inspect links, commands, scope, and changed-file list |
-| Content or site configuration | `git diff --check`; `npm run lint:prettier` when available; `bundle exec jekyll build` or Docker/Jekyll build; verify <http://localhost:8080/> and affected pages/assets/links |
-| Plugin or dependency wiring | Confirm `Gemfile` and `_config.yml` agree; run `bundle install` only when authorized; run `bundle exec al-folio upgrade audit`; run the affected `test/integration_*.sh` scripts |
-| Layout/style/runtime override | Formatting check, Jekyll/Docker build, relevant integration tests, `bundle exec al-folio upgrade overrides audit`, and review of `.al-folio-overrides.yml`; use `npm run lint:style-contract` as the ownership diagnostic described above |
-| Visual behavior | Browser verification and `npm run test:visual`; install the documented Playwright browsers first only when required and authorized |
-| Upgrade or override maintenance | `bundle exec al-folio upgrade audit`, `bundle exec al-folio upgrade overrides audit`, `bundle exec al-folio upgrade report`, and `bash test/integration_upgrade_cli.sh` when the change touches that workflow |
+| Change type                     | Expected validation                                                                                                                                                                                                                       |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Documentation only              | `git diff --check`; inspect links, commands, scope, and changed-file list                                                                                                                                                                 |
+| Content or site configuration   | `git diff --check`; `npm run lint:prettier` when available; `bundle exec jekyll build` or Docker/Jekyll build; verify <http://localhost:8080/> and affected pages/assets/links                                                            |
+| Plugin or dependency wiring     | Confirm `Gemfile` and `_config.yml` agree; run `bundle install` only when authorized; run `bundle exec al-folio upgrade audit`; run the affected `test/integration_*.sh` scripts                                                          |
+| Layout/style/runtime override   | Formatting check, Jekyll/Docker build, relevant integration tests, `bundle exec al-folio upgrade overrides audit`, and review of `.al-folio-overrides.yml`; use `npm run lint:style-contract` as the ownership diagnostic described above |
+| Visual behavior                 | Browser verification and `npm run test:visual`; install the documented Playwright browsers first only when required and authorized                                                                                                        |
+| Upgrade or override maintenance | `bundle exec al-folio upgrade audit`, `bundle exec al-folio upgrade overrides audit`, `bundle exec al-folio upgrade report`, and `bash test/integration_upgrade_cli.sh` when the change touches that workflow                             |
 
 The documented cross-plugin tests are:
 
