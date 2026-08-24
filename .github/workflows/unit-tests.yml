@@ -1,45 +1,40 @@
-name: Integration tests
+name: Personal site smoke test
 
 on:
   push:
     branches:
-      - master
       - main
-      - v1.0-dev
     paths:
       - "Gemfile"
       - "Gemfile.lock"
       - "_config.yml"
+      - "_bibliography/**"
       - "_data/**"
       - "_pages/**"
-      - "_posts/**"
-      - "_projects/**"
       - "assets/**"
-      - "test/**"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/unit-tests.yml"
   pull_request:
     branches:
-      - master
       - main
-      - v1.0-dev
     paths:
       - "Gemfile"
       - "Gemfile.lock"
       - "_config.yml"
+      - "_bibliography/**"
       - "_data/**"
       - "_pages/**"
-      - "_posts/**"
-      - "_projects/**"
       - "assets/**"
-      - "test/**"
       - "package.json"
       - "package-lock.json"
       - ".github/workflows/unit-tests.yml"
 
+permissions:
+  contents: read
+
 jobs:
-  comments-integration-tests:
+  smoke-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -55,42 +50,68 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-          cache: "pip"
+          cache: pip
 
       - name: Setup Node 🧰
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          cache: npm
 
-      - name: Install JS deps 📦
+      - name: Install JS dependencies 📦
         run: npm ci
-
-      - name: Run style contract lint 🧷
-        run: npm run lint:style-contract
 
       - name: Install build prerequisites 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
           pip3 install --upgrade nbconvert
 
-      - name: Run comments integration test 🧪
-        run: bash test/integration_comments.sh
+      - name: Build production site 🏗️
+        run: JEKYLL_ENV=production bundle exec jekyll build
 
-      - name: Run plugin toggle integration test 🔌
-        run: bash test/integration_plugin_toggles.sh
+      - name: Verify personal site output 🔎
+        run: |
+          set -euo pipefail
 
-      - name: Run distill integration test 📄
-        run: bash test/integration_distill.sh
+          for output in \
+            index.html \
+            research/index.html \
+            projects/index.html \
+            publications/index.html \
+            cv/index.html; do
+            test -f "_site/${output}"
+          done
 
-      - name: Run bootstrap compatibility integration test 🧩
-        run: bash test/integration_bootstrap_compat.sh
+          test ! -e _site/al-folio/index.html
 
-      - name: Run upgrade CLI integration test ⬆️
-        run: bash test/integration_upgrade_cli.sh
+          sitemap_count="$(grep -o '<url>' _site/sitemap.xml | wc -l | tr -d ' ')"
+          test "${sitemap_count}" -eq 5
 
-      - name: Run CSS minify integration test 🎨
-        run: bash test/integration_css_minify.sh
+          for url in \
+            'https://ofsungkyun.github.io/' \
+            'https://ofsungkyun.github.io/research/' \
+            'https://ofsungkyun.github.io/projects/' \
+            'https://ofsungkyun.github.io/publications/' \
+            'https://ofsungkyun.github.io/cv/'; do
+            grep -Fq "<loc>${url}</loc>" _site/sitemap.xml
+          done
 
-      - name: Run new plugin integration checks 🧩
-        run: bash test/integration_new_plugins.sh
+          if grep -R -I -q -i -E \
+            --include='*.html' \
+            --include='*.xml' \
+            --include='*.json' \
+            'Albert Einstein|Princeton University|The Godfather|project [1-9]' \
+            _site; then
+            echo "Unexpected al-folio demo content found in generated output." >&2
+            exit 1
+          fi
+
+          if grep -R -I -q -E \
+            --include='*.html' \
+            '(href|src)="/al-folio/' \
+            _site; then
+            echo "Unexpected /al-folio/ baseurl found in generated output." >&2
+            exit 1
+          fi
+
+          echo "Personal site smoke checks passed."

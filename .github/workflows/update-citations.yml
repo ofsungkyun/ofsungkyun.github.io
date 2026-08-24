@@ -1,11 +1,10 @@
 name: Update Google Scholar Citations
 
 on:
-  schedule:
-    - cron: "0 0 * * 1" # Monday
-    - cron: "0 0 * * 3" # Wednesday
-    - cron: "0 0 * * 5" # Friday
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   update-citations:
@@ -85,17 +84,9 @@ jobs:
             echo "ℹ️ _data/citations.yml was not changed." >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: Configure Git
-        run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          echo "🔧 Git configured."
-
-      - name: Commit and push if changed
-        run: |
-          git add _data/citations.yml
-          git diff --staged --quiet || (
-            echo "📤 Committing and pushing changes..."
-            git commit -m "Update Google Scholar citations"
-            git push
-          )
+      - name: Upload citation data artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: citations-yml
+          path: _data/citations.yml
+          if-no-files-found: warn
