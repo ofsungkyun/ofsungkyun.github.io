@@ -2,6 +2,23 @@
 
 This file is the authoritative project-level entry point for agents working in this repository. Read it before inspecting, modifying, validating, committing, or deploying the site. Keep this file concise; use the linked architecture documents and workflow SOP for detailed procedures.
 
+## Cold-start bootstrap for every Codex session
+
+Every new Codex conversation or session in this repository must complete this bootstrap before handling a substantive task:
+
+1. Confirm that the repository root is `C:\Projects\ofsungkyun.github.io` and apply this root `AGENTS.md`.
+2. Read [`docs/codex-workflow.md`](docs/codex-workflow.md) in full.
+3. Load that document's Command Shortcuts and session procedures as the operating rules for the current session.
+
+This bootstrap must make the following aliases discoverable and authoritative in a completely new session:
+
+- `작업 시작` / `Start work`
+- `commit 진행` / `Proceed with commit`
+- `push 진행` / `Proceed with push`
+- `작업 종료` / `End work`
+
+Do not rely on conversation memory from an earlier session for operational safety. Treat this repository's current documentation and inspected Git state as the authoritative sources. The detailed authorization boundaries, remote-divergence rules, commit/push separation, validation steps, and shutdown behavior are defined in `docs/codex-workflow.md`.
+
 ## 1. Project identity
 
 - This repository is Sungkyun Im's personal academic website, based on al-folio v1.x and intended for deployment with GitHub Pages.
@@ -83,6 +100,7 @@ Keep the required `al_folio` v1 contract keys in `_config.yml`; run the upgrade 
 
 - Do not run `git push` without the user's explicit request for that push.
 - Do not run `git pull` or fetch-and-integrate changes without the user's explicit request.
+- A plain `git fetch origin` is authorized only when the user requests it directly or invokes a workflow shortcut that explicitly includes it, such as `작업 시작` or `push 진행`. Fetch never authorizes pull, merge, rebase, or reset.
 - Do not create, switch, rename, merge, or rebase branches without the user's explicit request.
 - Do not change global or repository-local Git configuration, remotes, credentials, or Git Credential Manager state without the user's explicit request.
 - Do not use destructive Git commands such as `git reset --hard`, forced checkout, forced push, or history rewriting unless the user explicitly requests the exact operation and its consequences are understood.
