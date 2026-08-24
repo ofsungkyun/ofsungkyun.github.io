@@ -1,0 +1,275 @@
+featured_projects:
+  - id: adaptive-xai-safety-model
+    title: Adaptive XAI Safety Model for Diverse Users
+    original_title: 2025 인지 및 감각 다양성 사용자의 돌발·불안정 주행 행동 예측과 대응을 위한 적응형 XAI 안전 모형 개발
+    period: 2025–Present
+    type: Publicly funded research project
+    fields:
+      - Human Factors
+      - XAI
+      - AI
+    sponsor: Publicly funded research project
+    status: Ongoing
+    featured: true
+    featured_order: 1
+    all_order: 1
+    summary: An ongoing project on adaptive XAI-based safety modeling for predicting and responding to sudden or unstable driving behavior among users with diverse cognitive and sensory characteristics.
+
+  - id: chewing-gum-psychophysiology
+    title: Psychophysiological Evaluation of Chewing Gum, Stress, and Affect
+    original_title: 껌의 물성 및 말티톨 함유 유무에 따른 스트레스 저감 효과 연구(완료) / 껌 저작 시간에 따른 일반껌과 졸음껌의 스트레스 저감 효과 및 감성 효과 비교 연구
+    period: 2022–2023
+    type: Industry-sponsored studies
+    fields:
+      - Psychophysiology
+      - EEG
+      - Questionnaires
+    sponsor: Industry-sponsored studies
+    status: Completed
+    featured: true
+    featured_order: 2
+    all_order: 3
+    summary: A grouped portfolio case comprising two studies of how chewing-gum properties and chewing duration relate to stress reduction and affective responses, using EEG and questionnaires.
+
+  - id: display-refresh-rate
+    title: Display Refresh Rate, Gaming Performance, and Cognitive Response
+    original_title: OLED 디스플레이 주사율 변화에 따른 게임 수행도 및 인지 반응 연구
+    period: 2019–2020
+    type: Industry-sponsored UX study
+    fields:
+      - Human Factors
+      - UX
+      - Eye Tracking
+      - Questionnaires
+    sponsor: Industry-sponsored UX study
+    status: Completed
+    featured: true
+    featured_order: 3
+    all_order: 8
+    summary: A UX study examining gaming performance and cognitive responses under different OLED display refresh-rate conditions using eye tracking and questionnaires.
+
+  - id: side-mirror-cms
+    title: Ergonomic Evaluation of Side Mirrors and Camera Monitor Systems
+    original_title: 실차 실험을 통한 실외후사경(사이드미러) 및 카메라 모니터 시스템(CMS)의 주야간 조건에 따른 인간공학적 평가
+    period: "2017"
+    type: Public-sector automotive research project
+    fields:
+      - Human Factors
+      - Usability
+      - Eye Tracking
+      - Questionnaires
+    sponsor: Public-sector automotive research project
+    status: Completed
+    featured: true
+    featured_order: 4
+    all_order: 11
+    summary: A vehicle-based ergonomics study comparing conventional side mirrors and camera monitor systems under day and night conditions using usability testing, eye tracking, and questionnaires.
+
+  - id: adjustable-split-seat
+    title: Ergonomic Evaluation and Development of an Adjustable Split-Seat
+    original_title: 3분할 유동좌판 의자의 인체공학적 성능평가 및 너비조절형 분할좌판 개발
+    period: 2019–2020
+    type: Publicly funded university–industry project
+    fields:
+      - Human Factors
+      - Product Development
+      - EMG
+      - Usability
+    sponsor: Publicly funded university–industry project
+    status: Completed
+    featured: true
+    featured_order: 5
+    all_order: 9
+    summary: A product-ergonomics project evaluating the performance of a three-part dynamic seat and developing an adjustable split-seat configuration using usability and EMG-related measures.
+
+all_projects:
+  - id: adaptive-xai-safety-model
+    title: Adaptive XAI Safety Model for Diverse Users
+    original_title: 2025 인지 및 감각 다양성 사용자의 돌발·불안정 주행 행동 예측과 대응을 위한 적응형 XAI 안전 모형 개발
+    period: 2025–Present
+    type: Publicly funded research project
+    fields:
+      - Human Factors
+      - XAI
+      - AI
+    sponsor: Publicly funded research project
+    status: Ongoing
+    featured: true
+    featured_order: 1
+    all_order: 1
+    summary:
+
+  - id: work-permit-systems
+    title: Improving the Operational Efficiency of Work-Permit Systems
+    original_title: 작업허가제의 효율적 운영 개선방안
+    period: 2023–2024
+    type: Public-sector sponsored project
+    fields:
+      - Data Analysis
+    sponsor: Public-sector sponsored project
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 2
+    summary:
+
+  - id: chewing-gum-psychophysiology
+    title: Chewing Duration, Stress Reduction, and Affective Response
+    original_title: 껌 저작 시간에 따른 일반껌과 졸음껌의 스트레스 저감 효과 및 감성 효과 비교 연구
+    period: "2023"
+    type: Industry-sponsored study
+    fields:
+      - Psychophysiology
+      - EEG
+      - Questionnaires
+    sponsor: Industry-sponsored study
+    status: Completed
+    featured: true
+    featured_order: 2
+    all_order: 3
+    summary:
+
+  - id: semiconductor-equipment-standards
+    title: Development of Product Technical Standards for Semiconductor Process Equipment
+    original_title: 반도체 공정 장비의 제품 기술기준 개발에 관한 연구
+    period: "2023"
+    type: Public-sector research project
+    fields:
+      - Human Factors
+      - Technical Standards
+    sponsor: Public-sector research project
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 4
+    summary:
+
+  - id: vehicle-inspection-big-data
+    title: Big-Data Analysis of Vehicle Inspection Results
+    original_title: 자동차검사결과 빅데이터 분석 용역
+    period: "2022"
+    type: Public-sector project
+    fields:
+      - Data Analysis
+      - Automotive Lighting
+      - Transportation Safety
+    sponsor: Public-sector project
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 5
+    summary:
+
+  - id: manufacturing-musculoskeletal-risk
+    title: Musculoskeletal Risk-Factor Assessment in Manufacturing
+    original_title: 제조업 사업장 근골격계유해요인조사
+    period: "2022"
+    type: Industry-sponsored ergonomics project
+    fields:
+      - Human Factors
+      - Musculoskeletal Risk Assessment
+    sponsor: Industry-sponsored ergonomics project
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 6
+    summary:
+
+  - id: chewing-gum-properties-stress-reduction
+    title: Chewing-Gum Properties and Stress Reduction
+    original_title: 껌의 물성 및 말티톨 함유 유무에 따른 스트레스 저감 효과 연구
+    period: "2022"
+    type: Industry-sponsored study
+    fields:
+      - Psychophysiology
+      - EEG
+      - Questionnaires
+    sponsor: Industry-sponsored study
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 7
+    summary:
+
+  - id: display-refresh-rate
+    title: Display Refresh Rate, Gaming Performance, and Cognitive Response
+    original_title: OLED 디스플레이 주사율 변화에 따른 게임 수행도 및 인지 반응 연구
+    period: 2019–2020
+    type: Industry-sponsored UX study
+    fields:
+      - Human Factors
+      - UX
+      - Eye Tracking
+      - Questionnaires
+    sponsor: Industry-sponsored UX study
+    status: Completed
+    featured: true
+    featured_order: 3
+    all_order: 8
+    summary:
+
+  - id: adjustable-split-seat
+    title: Ergonomic Evaluation and Development of an Adjustable Split-Seat
+    original_title: 3분할 유동좌판 의자의 인체공학적 성능평가 및 너비조절형 분할좌판 개발
+    period: 2019–2020
+    type: Publicly funded university–industry project
+    fields:
+      - Human Factors
+      - Product Development
+      - EMG
+      - Usability
+    sponsor: Publicly funded university–industry project
+    status: Completed
+    featured: true
+    featured_order: 5
+    all_order: 9
+    summary:
+
+  - id: baraw-nursing-ergonomics
+    title: Evaluation and Tool Development for the BARAW Nursing Ergonomics Guide
+    original_title: 간호직종 바로(BARAW) 가이드 효용성 분석 및 평가도구 개발 연구
+    period: "2018"
+    type: Professional association project
+    fields:
+      - Human Factors
+      - Musculoskeletal Risk Assessment
+    sponsor: Professional association project
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 10
+    summary:
+
+  - id: side-mirror-cms
+    title: Ergonomic Evaluation of Side Mirrors and Camera Monitor Systems
+    original_title: 실차 실험을 통한 실외후사경(사이드미러) 및 카메라 모니터 시스템(CMS)의 주야간 조건에 따른 인간공학적 평가
+    period: "2017"
+    type: Public-sector automotive research project
+    fields:
+      - Human Factors
+      - Usability
+      - Eye Tracking
+      - Questionnaires
+    sponsor: Public-sector automotive research project
+    status: Completed
+    featured: true
+    featured_order: 4
+    all_order: 11
+    summary:
+
+  - id: consumer-appliance-usability
+    title: Consumer Appliance Usability Evaluation
+    original_title: 가전제품 청소기 사용성 평가
+    period: "2017"
+    type: Industry-sponsored UX study
+    fields:
+      - Usability
+      - EMG
+      - Eye Tracking
+      - Questionnaires
+    sponsor: Industry-sponsored UX study
+    status: Completed
+    featured: false
+    featured_order:
+    all_order: 12
+    summary:
