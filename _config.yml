@@ -225,6 +225,7 @@ exclude:
   - docker-compose.yml
   - docker-compose-slim.yml
   - docs/
+  - test/
   - Gemfile
   - Gemfile.lock
   - LICENSE
@@ -235,6 +236,10 @@ exclude:
   - _projects/
   - assets/pdf/example_pdf.pdf
   - assets/jupyter/blog.ipynb
+  - assets/video/tutorial_al_folio.mp4
+  - assets/img/star-history-light.svg
+  - assets/img/star-history-dark.svg
+  - assets/img/template_error.png
   - assets/img/1.jpg
   - assets/img/3.jpg
   - assets/img/4.jpg
