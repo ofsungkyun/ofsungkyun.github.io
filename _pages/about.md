@@ -22,7 +22,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-*Human Factors · Physiological Computing · Human–AI Interaction · User Experience*
+_Human Factors · Physiological Computing · Human–AI Interaction · User Experience_
 
 **Human factors researcher specializing in physiological computing, human-state assessment, and human–AI interaction.**
 

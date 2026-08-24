@@ -53,7 +53,7 @@ The work covers the full analytical pipeline, including experimental design, sig
 
 ## Human–AI Interaction {#human-ai-interaction}
 
-*Current and Emerging Research Direction*
+_Current and Emerging Research Direction_
 
 My current and emerging research examines how AI-enabled systems can account for differences among users while remaining understandable, usable, and human-centered. I am particularly interested in combining physiological, behavioral, and subjective evidence to evaluate user responses to adaptive and explainable AI systems.
 
