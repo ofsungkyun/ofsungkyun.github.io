@@ -24,6 +24,17 @@ Main integration and push/deployment remain stage-specific Human Gates after che
 
 A Task Spec may document an excluded baseline change that predates the task. Such a baseline may remain only when its path and identifying evidence are recorded, it is not modified by the task, and it is not staged or committed. Reverify it before checkpoint commit. Excluded baseline changes are not part of the task change set.
 
+### Automatic Orca `package-lock.json` baseline exception
+
+Codex may recognize one known worktree-local baseline without a Task Spec entry or Human Gate. Apply this exception only when all of these checks pass:
+
+1. The changed path is the tracked root `package-lock.json`, it is unstaged and unconflicted, and its index entry still matches `HEAD`.
+2. The expected worktree name is the final path component of the registered worktree root returned by `git rev-parse --show-toplevel`.
+3. Compared byte-for-byte with `HEAD:package-lock.json`, the working file has exactly one change: the JSON document's top-level `name` value changes from `"al-folio"` to that expected worktree name. No formatting, nested `name`, dependency, version, integrity, package-entry, or other difference is allowed.
+4. Codex records the path, expected old and new values, exact diff, `HEAD` blob ID, and working-file blob ID as excluded-baseline evidence for the current task or session.
+
+When every condition matches, leave `package-lock.json` unchanged and unstaged, exclude it from the task change set, and do not report `HUMAN DECISION REQUIRED` solely because of that baseline. Reverify the same conditions and recorded evidence before a checkpoint commit. If any condition fails or any additional difference appears, stop with `HUMAN DECISION REQUIRED`; do not modify, restore, stage, or commit the file. This exception applies to no other path or dirty-file pattern and does not authorize a dependency, repository, tool, or system configuration change. While it exists, broad staging remains prohibited; stage each approved task path explicitly.
+
 ## 4. Required minimal Task Spec
 
 Every approved implementation task must define:

@@ -105,7 +105,7 @@ Use this entry point to restore the local development environment with minimal i
 1. Confirm the current registered worktree with `git rev-parse --show-toplevel` and `git worktree list --porcelain`, and confirm that the cold-start bootstrap has loaded `AGENTS.md`, Operating Policy v1, and this workflow.
 2. Complete the full [Session Start](#2-session-start) procedure and inspect Git before changing files or starting services.
 3. When Quick Resume was invoked by `작업 시작` / `Start work`, use that shortcut's authorization to run `git fetch origin` and apply its divergence policy. Otherwise, fetch only with separate user authorization.
-4. Stop and report if there are conflicts, a branch that does not match the approved Task Spec or intended maintenance context, a detached HEAD, unexplained staged/unstaged/untracked changes, a behind state, or a diverged state. Handle a documented excluded baseline change under the policy instead of treating it as task output.
+4. Stop and report if there are conflicts, a branch that does not match the approved Task Spec or intended maintenance context, a detached HEAD, unexplained staged/unstaged/untracked changes, a behind state, or a diverged state. Handle a documented excluded baseline or the policy's narrowly defined automatic Orca `package-lock.json` baseline under the operating policy instead of treating it as task output.
 5. If the Git state permits work, check Docker Desktop, Docker Engine, Docker Compose, and the al-folio Compose service.
 6. If Docker Desktop is stopped, follow the user's authorization and the existing workflow rules before starting it. Do not start it silently.
 7. When Docker is available and local execution is authorized, start the al-folio service with `docker compose up -d` and inspect its logs.
@@ -124,7 +124,7 @@ Use this sequence before changing files:
 
 1. Confirm the current registered worktree root with `git rev-parse --show-toplevel` and inspect `git worktree list --porcelain` when worktree identity or main-worktree location matters.
 2. Confirm the current branch with `git branch --show-current`, compare it with the approved Task Spec or intended maintenance context, and ensure HEAD is not detached.
-3. Record `git rev-parse HEAD`, run `git status`, and inspect staged, unstaged, untracked, and conflicted files separately. Verify any Task Spec baseline exception without modifying it.
+3. Record `git rev-parse HEAD`, run `git status`, and inspect staged, unstaged, untracked, and conflicted files separately. Verify any Task Spec baseline exception and apply the automatic Orca `package-lock.json` baseline rule only as defined in [`docs/codex-operating-policy.md`](codex-operating-policy.md), without modifying the baseline file.
 4. Review recent work with `git log -3 --oneline`.
 5. Confirm the origin URL with `git remote get-url origin` when remote identity is relevant to the task or a remote-aware shortcut.
 6. When `작업 시작` / `Start work` or another explicit instruction authorizes it, run `git fetch origin`. Otherwise, state that the following comparison uses only the locally available tracking ref and has not contacted GitHub.
