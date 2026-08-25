@@ -22,43 +22,39 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-_Human Factors · Physiological Computing · Human–AI Interaction · User Experience_
+_Human Factors · Psychophysiological Assessment · Human–AI Interaction · User Experience_
 
-**Human factors researcher specializing in physiological computing, human-state assessment, and human–AI interaction.**
+**Studying human states, user experience, and human–technology interaction through physiological and behavioral measures.**
 
 **Explore:** [Research]({% link _pages/research.md %}) · [Projects]({% link _pages/projects.md %}) · [Publications]({% link _pages/publications.md %}) · [CV]({% link _pages/cv.md %})
 
 ## Research Areas
 
 - **[Human Factors & User Experience]({% link _pages/research.md %}#human-factors-ux)** — Evaluating products, work systems, and interactive technologies through human performance, ergonomics, usability, and user experience.
-- **[Physiological Computing & Human-State Assessment]({% link _pages/research.md %}#physiological-computing)** — Using EEG, ECG/HRV, EMG, eye tracking, and subjective measures to characterize human states, responses, and individual differences.
+- **[Psychophysiological Assessment]({% link _pages/research.md %}#physiological-computing)** — Using EEG, ECG/HRV, EMG, eye tracking, and subjective measures to characterize human states, responses, and individual differences.
 - **[Human–AI Interaction]({% link _pages/research.md %}#human-ai-interaction)** — Investigating adaptive and explainable AI-enabled systems from a human-centered perspective, with attention to user behavior and response.
 
 ## About
 
-I am a human factors researcher who studies human states, experiences, and interactions with technology through physiological and behavioral data. My work combines EEG, ECG/HRV, EMG, eye tracking, questionnaires, and controlled experiments to examine how people respond to products, environments, games, and interactive systems.
+My research examines human states, experiences, and interactions with technology through physiological and behavioral measures. EEG, ECG/HRV, EMG, eye tracking, questionnaires, and controlled experiments are used to investigate how people respond to products, environments, games, and interactive systems.
 
-I work across the full research workflow—from problem formulation and experimental design to data acquisition, signal preprocessing, feature extraction, statistical analysis, and machine-learning modeling. My recent research has focused on physiological markers and event-driven EEG features associated with gaming-disorder risk, alongside applied studies of stress, affect, fatigue, usability, and ergonomics.
+Methodologically, this work spans the full research process, from problem formulation and experimental design to data acquisition, signal processing, statistical analysis, and machine-learning modeling. Recent studies have examined physiological markers and event-driven EEG features associated with gaming-disorder risk, alongside applied research on stress, affect, fatigue, usability, and ergonomics.
 
-My background in mechanical engineering and automotive safety research informs an applied, measurement-oriented approach to human factors. I am currently extending this work toward human–AI interaction, with an interest in evaluating and designing adaptive, usable, and human-centered intelligent systems.
+A background in mechanical engineering and automotive safety research provides an applied, measurement-oriented foundation for this work. Building on that foundation, the current research direction extends toward human–AI interaction, particularly the evaluation and design of adaptive, usable, and human-centered intelligent systems.
 
 ## Methods & Expertise
 
-**Physiological and Behavioral Measures**
+**Physiological & Behavioral Measures**
 
 EEG · ECG/HRV · EMG · Eye Tracking · Questionnaires
 
-**Research Design**
+**Study Design & Evaluation**
 
-Experimental Design · User Studies · Usability Evaluation · Physiological Measurement
+Experimental Design · User Studies · Usability Evaluation · Human Factors Evaluation
 
-**Analysis**
+**Data Analysis & Modeling**
 
-Signal Preprocessing · Feature Extraction · Statistical Modeling · Machine Learning · SHAP
-
-**Tools**
-
-Python · R · SPSS · jamovi · Excel
+Psychophysiological Signal Analysis · Statistical Modeling · Machine Learning · Explainable AI
 
 ## Research Highlights
 
