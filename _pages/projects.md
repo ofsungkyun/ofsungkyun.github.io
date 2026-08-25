@@ -11,33 +11,54 @@ This page presents selected research and applied projects across physiological c
 ## Featured Projects
 
 {% assign featured_projects = site.data.projects.featured_projects | sort: "featured_order" %}
+
+<div class="row">
 {% for project in featured_projects %}
-
-### {{ project.title }} {#featured-{{ project.id }}}
-
-- **Period:** {{ project.period }}
-- **Type:** {{ project.type }}
-- **Fields:** {{ project.fields | join: " · " }}
-
-{{ project.summary }}
-
-[View in all projects](#{{ project.id }})
-
+  <div class="col-12 col-md-6 mb-4{% if forloop.last %} offset-md-3{% endif %}">
+    <article class="card h-100" aria-labelledby="featured-{{ project.id }}">
+      <div class="card-body">
+        <h3 class="card-title h5" id="featured-{{ project.id }}">{{ project.title }}</h3>
+        <p class="card-subtitle text-muted mb-3"><strong>Period:</strong> {{ project.period }}</p>
+        <dl class="mb-3">
+          <div class="row mb-1">
+            <dt class="col-sm-3">Type</dt>
+            <dd class="col-sm-9 mb-0">{{ project.type }}</dd>
+          </div>
+          <div class="row">
+            <dt class="col-sm-3">Fields</dt>
+            <dd class="col-sm-9 mb-0">{{ project.fields | join: " · " }}</dd>
+          </div>
+        </dl>
+        <p class="card-text mb-0">{{ project.summary }}</p>
+      </div>
+      <div class="card-footer bg-transparent">
+        <a href="#{{ project.id }}">View in all projects</a>
+      </div>
+    </article>
+  </div>
 {% endfor %}
+</div>
 
 ## All Projects
 
 {% assign all_projects = site.data.projects.all_projects | sort: "all_order" %}
+
+<div class="mb-4">
 {% for project in all_projects %}
-
-### {{ project.period }} — {{ project.title }} {#{{ project.id }}}
-
-- **Korean title:** {{ project.original_title }}
-- **Fields:** {{ project.fields | join: " · " }}
-- **Sponsor:** {{ project.sponsor }}
-- **Status:** {{ project.status }}
-
+  <article class="py-3 border-bottom" aria-labelledby="{{ project.id }}">
+    <h3 class="h5 mb-2" id="{{ project.id }}"><span class="text-muted">{{ project.period }}</span> — {{ project.title }}</h3>
+    <p class="mb-2"><strong>Korean title:</strong> {{ project.original_title }}</p>
+    <dl class="row mb-0">
+      <dt class="col-sm-2">Fields</dt>
+      <dd class="col-sm-10 mb-1">{{ project.fields | join: " · " }}</dd>
+      <dt class="col-sm-2">Sponsor</dt>
+      <dd class="col-sm-10 mb-1">{{ project.sponsor }}</dd>
+      <dt class="col-sm-2">Status</dt>
+      <dd class="col-sm-10 mb-0">{{ project.status }}</dd>
+    </dl>
+  </article>
 {% endfor %}
+</div>
 
 ## Disclosure
 
