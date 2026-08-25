@@ -1,0 +1,34 @@
+---
+layout: default
+---
+{% assign cv_feature_enabled = site.al_folio.features.cv.enabled | default: true %}
+
+{% if site.plugins contains 'al_folio_cv' and cv_feature_enabled %}
+  {% if page.cv_format == 'rendercv' and site.data.cv and site.data.cv.cv %}
+    <nav class="d-sm-none card mt-3 p-3" aria-label="CV section navigation">
+      <details>
+        <summary class="font-weight-medium">Jump to section</summary>
+        <ul class="mb-0 mt-2">
+          <li><a href="#contact-information">Contact Information</a></li>
+          {% for section_pair in site.data.cv.cv.sections %}
+            {% assign section_title = section_pair[0] %}
+            <li>
+              <a href="#{{ section_title | slugify }}">{{ section_title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </details>
+    </nav>
+  {% endif %}
+  {% al_folio_cv_render %}
+{% else %}
+  <div class="post">
+    <header class="post-header">
+      <h1 class="post-title">{{ page.title }}</h1>
+      <p class="post-description">CV rendering is unavailable.</p>
+    </header>
+    <article>
+      <p>Enable the <code>al_folio_cv</code> plugin and set <code>al_folio.features.cv.enabled: true</code> to render this page.</p>
+    </article>
+  </div>
+{% endif %}
