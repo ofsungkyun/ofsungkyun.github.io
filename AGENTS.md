@@ -1,14 +1,17 @@
 # Agent Guidelines for Sungkyun Im's Academic Website
 
-This file is the authoritative project-level entry point for agents working in this repository. Read it before inspecting, modifying, validating, committing, or deploying the site. Keep this file concise; use the linked architecture documents and workflow SOP for detailed procedures.
+This file is the authoritative project-level entry point for agents working in this repository. Read it before inspecting, modifying, validating, committing, integrating, or deploying the site. Keep this file concise; use the linked operating policy, architecture documents, and workflow SOP for detailed rules and procedures.
+
+Apply instructions in this order: higher-priority platform and user instructions, this root `AGENTS.md`, [`docs/codex-operating-policy.md`](docs/codex-operating-policy.md), [`docs/codex-workflow.md`](docs/codex-workflow.md), and then task-relevant linked documentation. A Task Spec may narrow or explicitly authorize a gated change, but it cannot override an absolute prohibition. Stop and request a Human Gate if applicable instructions conflict or the approved scope is unclear.
 
 ## Cold-start bootstrap for every Codex session
 
 Every new Codex conversation or session in this repository must complete this bootstrap before handling a substantive task:
 
-1. Confirm that the repository root is `C:\Projects\ofsungkyun.github.io` and apply this root `AGENTS.md`.
-2. Read [`docs/codex-workflow.md`](docs/codex-workflow.md) in full.
-3. Load that document's Command Shortcuts and session procedures as the operating rules for the current session.
+1. Use `git rev-parse --show-toplevel` to identify the current registered worktree, confirm its branch, HEAD, status, and repository identity, and apply this root `AGENTS.md`. Do not require a fixed filesystem path; implementation tasks normally run in their own isolated worktree.
+2. Read [`docs/codex-operating-policy.md`](docs/codex-operating-policy.md) in full and load its Task Spec, AUTO/Human Gate, retry, checkpoint, lifecycle, and terminal-status rules.
+3. Read [`docs/codex-workflow.md`](docs/codex-workflow.md) in full.
+4. Load that document's Command Shortcuts and session procedures as the operating rules for the current session.
 
 This bootstrap must make the following aliases discoverable and authoritative in a completely new session:
 
@@ -17,7 +20,16 @@ This bootstrap must make the following aliases discoverable and authoritative in
 - `push 진행` / `Proceed with push`
 - `작업 종료` / `End work`
 
-Do not rely on conversation memory from an earlier session for operational safety. Treat this repository's current documentation and inspected Git state as the authoritative sources. The detailed authorization boundaries, remote-divergence rules, commit/push separation, validation steps, and shutdown behavior are defined in `docs/codex-workflow.md`.
+Do not rely on conversation memory from an earlier session for operational safety. Treat this repository's current documentation, approved Task Spec, and freshly inspected Git state as the authoritative sources. The operating model and authorization boundaries are defined in `docs/codex-operating-policy.md`; the remote-divergence, validation, commit, integration, push, deployment, and shutdown procedures are defined in `docs/codex-workflow.md`.
+
+## Operating model
+
+- ChatGPT is the Planner, Architect, and independent Reviewer; an Orca worktree plus Codex is the Executor. Multi-agent Orca orchestration is deferred by default.
+- One approved implementation task uses one isolated Git worktree. The Task Spec defines a closed scope of approved files, acceptance criteria, and task-specific constraints.
+- Within that closed scope, follow the AUTO lifecycle in `docs/codex-operating-policy.md` without seeking repeated approval for normal inspection, planning, editing, formatting, validation, self-review, or at most two corrective iterations.
+- Approval of a Policy v1 Task Spec conditionally authorizes exactly one checkpoint commit after every required validation and staged-diff safeguard passes. This is the only exception to the manual `commit 진행` / `Proceed with commit` path.
+- A checkpoint commit remains on the task branch. It never authorizes main integration or push. Main integration and push are separate Human Gates.
+- Do not copy the detailed AUTO/Human Gate matrix into this file; `docs/codex-operating-policy.md` is its single source of truth.
 
 ## 1. Project identity
 
@@ -100,14 +112,17 @@ Keep the required `al_folio` v1 contract keys in `_config.yml`; run the upgrade 
 
 - Do not run `git push` without the user's explicit request for that push.
 - Do not run `git pull` or fetch-and-integrate changes without the user's explicit request.
-- A plain `git fetch origin` is authorized only when the user requests it directly or invokes a workflow shortcut that explicitly includes it, such as `작업 시작` or `push 진행`. Fetch never authorizes pull, merge, rebase, or reset.
+- A plain `git fetch origin` is authorized only when the user requests it directly, invokes a workflow shortcut that explicitly includes it such as `작업 시작` or `push 진행`, or approves the Main Integration Procedure. Main integration approval includes exactly one pre-integration fetch. Fetch never authorizes pull, merge, rebase, or reset.
 - Do not create, switch, rename, merge, or rebase branches without the user's explicit request.
 - Do not change global or repository-local Git configuration, remotes, credentials, or Git Credential Manager state without the user's explicit request.
-- Do not use destructive Git commands such as `git reset --hard`, forced checkout, forced push, or history rewriting unless the user explicitly requests the exact operation and its consequences are understood.
-- Preserve unrelated user changes. If unexpected changes, conflicts, untracked files, detached HEAD, or an unexpected branch are found, stop before staging or committing and report them.
+- Never force push. Never use a destructive reset to discard or rewrite work. These are absolute prohibitions under this repository workflow, not ordinary Human Gates.
+- Never silently amend, rebase, replace, or otherwise rewrite an approved commit. If a materially different history operation is proposed, stop for a separately reviewed Human Gate, and do not use force push or destructive reset.
+- Main integration is a Human Gate and is fast-forward-only under the normal workflow. Use the registered main worktree and the Main Integration Procedure; never fall back automatically to a merge commit, rebase, reset, or cherry-pick. Any exceptional non-fast-forward proposal is outside Policy v1 and requires separate review and authorization without overriding the absolute prohibitions above.
+- Preserve unrelated user changes. If unexpected changes, conflicts, untracked files, detached HEAD, or an unexpected branch are found, stop before staging or committing and report them. A Task Spec may document a pre-existing excluded baseline change; leave it untouched and unstaged, and reverify its recorded evidence before checkpoint commit.
 - Before every commit, inspect `git status`, `git diff --stat`, and `git diff --check`.
 - Stage only the expected files. Recheck the staged file list and staged diff before committing.
-- Treat push as a separate operation requiring separate approval after a commit.
+- A Policy-authorized checkpoint commit may proceed only under `docs/codex-operating-policy.md` and the Commit Procedure. Every other commit requires the explicit/manual commit path.
+- Treat main integration and push as separate operations requiring separate approvals after a checkpoint commit. A commit never implies either action, and integration never implies push.
 
 ## 7. Validation and formatting rules
 
@@ -165,7 +180,7 @@ If validation fails, diagnose within the requested scope. Do not expand into dep
 
 ## 10. Project workflow
 
-[`docs/codex-workflow.md`](docs/codex-workflow.md) is the authoritative SOP for session start, work, validation, session end, commits, and deployment. Link to it rather than copying its reusable prompts into this file.
+[`docs/codex-operating-policy.md`](docs/codex-operating-policy.md) is the single source of truth for the Task Spec, AUTO/Human Gate model, retry budget, checkpoint authorization, lifecycle, and terminal statuses. [`docs/codex-workflow.md`](docs/codex-workflow.md) is the authoritative SOP for session start, work, validation, session end, commits, main integration, push, deployment, and shutdown. Link to them rather than duplicating their detailed rules in this file.
 
 ## 11. Further reading and conditional upstream contribution
 
