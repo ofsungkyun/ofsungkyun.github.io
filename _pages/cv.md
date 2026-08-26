@@ -120,7 +120,7 @@ toc:
           <section class="mt-5" aria-labelledby="{{ section_title | slugify }}">
             <h2 id="{{ section_title | slugify }}" class="h3 font-weight-medium border-bottom pb-2 mb-3">{{ section_title }}</h2>
             {% if section_title == 'Research Projects' %}
-              <p class="font-weight-light mb-2"><strong>Role:</strong> Participating Researcher unless otherwise noted.</p>
+              <p class="font-weight-light mb-2"><strong>Role:</strong> Researcher on all listed projects unless otherwise noted.</p>
             {% endif %}
             <ul class="card-text font-weight-light list-group list-group-flush">
               {% if section_title == 'Profile' %}
