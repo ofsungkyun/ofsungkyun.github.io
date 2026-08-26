@@ -13,31 +13,56 @@ This research investigates how human states, experiences, and interactions with 
 
 ## Research Areas
 
+<style>
+  .research-area-card__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--global-theme-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .research-area-card__title {
+      min-height: 3rem;
+    }
+  }
+</style>
+
 <div class="row">
-  <div class="col-12 col-md-4 mb-3">
-    <div class="card h-100">
-      <div class="card-body">
-        <strong>Human Factors & User Experience</strong>
-        <p>Evaluating products, work systems, and interactive technologies through human performance, ergonomics, usability, and user experience.</p>
-        <a class="d-block py-2" href="#human-factors-ux">View research area</a>
+  <div class="col-12 col-md-4 d-flex mb-3">
+    <div class="research-area-card card h-100 w-100">
+      <div class="card-body d-flex flex-column">
+        <div class="research-area-card__icon d-flex align-items-center justify-content-center mb-3" aria-hidden="true">
+          <i class="fa-solid fa-person fa-fw"></i>
+        </div>
+        <div class="research-area-card__title mb-3"><strong>Human Factors & User Experience</strong></div>
+        <p class="mb-3">Evaluating products, work systems, and interactive technologies through human performance, ergonomics, usability, and user experience.</p>
+        <a class="d-block mt-auto py-2" href="#human-factors-ux">View research area</a>
       </div>
     </div>
   </div>
-  <div class="col-12 col-md-4 mb-3">
-    <div class="card h-100">
-      <div class="card-body">
-        <strong>Psychophysiological Assessment</strong>
-        <p>Using EEG, ECG/HRV, EMG, eye tracking, and subjective measures to characterize human states, responses, and individual differences.</p>
-        <a class="d-block py-2" href="#physiological-computing">View research area</a>
+  <div class="col-12 col-md-4 d-flex mb-3">
+    <div class="research-area-card card h-100 w-100">
+      <div class="card-body d-flex flex-column">
+        <div class="research-area-card__icon d-flex align-items-center justify-content-center mb-3" aria-hidden="true">
+          <i class="fa-solid fa-brain fa-fw"></i>
+        </div>
+        <div class="research-area-card__title mb-3"><strong>Psychophysiological Assessment</strong></div>
+        <p class="mb-3">Using EEG, ECG/HRV, EMG, eye tracking, and subjective measures to characterize human states, responses, and individual differences.</p>
+        <a class="d-block mt-auto py-2" href="#physiological-computing">View research area</a>
       </div>
     </div>
   </div>
-  <div class="col-12 col-md-4 mb-3">
-    <div class="card h-100">
-      <div class="card-body">
-        <strong>Human–AI Interaction</strong>
-        <p>Investigating adaptive and explainable AI-enabled systems from a human-centered perspective, with attention to user behavior and response.</p>
-        <a class="d-block py-2" href="#human-ai-interaction">View research area</a>
+  <div class="col-12 col-md-4 d-flex mb-3">
+    <div class="research-area-card card h-100 w-100">
+      <div class="card-body d-flex flex-column">
+        <div class="research-area-card__icon d-flex align-items-center justify-content-center mb-3" aria-hidden="true">
+          <i class="fa-solid fa-network-wired fa-fw"></i>
+        </div>
+        <div class="research-area-card__title mb-3"><strong>Human–AI Interaction</strong></div>
+        <p class="mb-3">Investigating adaptive and explainable AI-enabled systems from a human-centered perspective, with attention to user behavior and response.</p>
+        <a class="d-block mt-auto py-2" href="#human-ai-interaction">View research area</a>
       </div>
     </div>
   </div>
