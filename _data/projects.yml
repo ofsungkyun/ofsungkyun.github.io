@@ -29,6 +29,9 @@ featured_projects:
     featured: true
     featured_order: 2
     all_order: 3
+    related_project_ids:
+      - chewing-gum-psychophysiology
+      - chewing-gum-properties-stress-reduction
     summary: A grouped portfolio case comprising two studies of how chewing-gum properties and chewing duration relate to stress reduction and affective responses, using EEG and questionnaires.
 
   - id: display-refresh-rate
