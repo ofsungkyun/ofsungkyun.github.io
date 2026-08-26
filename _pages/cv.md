@@ -120,16 +120,27 @@ toc:
           <section class="mt-5" aria-labelledby="{{ section_title | slugify }}">
             <h2 id="{{ section_title | slugify }}" class="h3 font-weight-medium border-bottom pb-2 mb-3">{{ section_title }}</h2>
             <ul class="card-text font-weight-light list-group list-group-flush">
-              {% for entry in section_entries %}
-                {% if entry.bullet %}
-                  {% assign rendered_bullet = entry.bullet | markdownify | remove: '<p>' | remove: '</p>' %}
-                  <li class="list-group-item px-0 py-3">{{ rendered_bullet | replace: '<strong>', '<strong class="d-block mb-1">' }}</li>
-                {% elsif entry.label %}
-                  <li class="list-group-item px-0 py-2">
-                    <strong>{{ entry.label }}:</strong> {{ entry.details }}
-                  </li>
-                {% endif %}
-              {% endfor %}
+              {% if section_title == 'Profile' %}
+                <li class="list-group-item px-0 py-3">
+                  Human factors researcher studying human states, user experience, and human–technology interaction through physiological and behavioral measures. Research
+                  interests span psychophysiological assessment, human factors and UX, and human–AI interaction.
+                </li>
+              {% elsif section_title == 'Research Interests' %}
+                <li class="list-group-item px-0 py-3">Human Factors & User Experience</li>
+                <li class="list-group-item px-0 py-3">Psychophysiological Assessment</li>
+                <li class="list-group-item px-0 py-3">Human–AI Interaction</li>
+              {% else %}
+                {% for entry in section_entries %}
+                  {% if entry.bullet %}
+                    {% assign rendered_bullet = entry.bullet | markdownify | remove: '<p>' | remove: '</p>' %}
+                    <li class="list-group-item px-0 py-3">{{ rendered_bullet | replace: '<strong>', '<strong class="d-block mb-1">' }}</li>
+                  {% elsif entry.label %}
+                    <li class="list-group-item px-0 py-2">
+                      <strong>{{ entry.label }}:</strong> {{ entry.details }}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
             </ul>
           </section>
         {% endfor %}
