@@ -32,7 +32,9 @@ nav_order: 3
 
 </section>
 
-<section class="mb-5 border-top pt-4" aria-labelledby="journal-articles">
+<hr class="border-0 my-5" style="border-top-color: var(--global-text-color-light)">
+
+<section class="mb-5" aria-labelledby="journal-articles">
   <h2 id="journal-articles" class="mb-4">Journal Articles</h2>
 
 {% capture journal_articles %}
@@ -50,7 +52,9 @@ nav_order: 3
 
 </section>
 
-<section class="mb-5 border-top pt-4" aria-labelledby="international-conference-papers-abstracts">
+<hr class="border-0 my-5" style="border-top-color: var(--global-text-color-light)">
+
+<section class="mb-5" aria-labelledby="international-conference-papers-abstracts">
   <h2 id="international-conference-papers-abstracts" class="mb-4">International Conference Papers &amp; Abstracts</h2>
 
 {% capture international_conference_publications %}
@@ -68,7 +72,9 @@ nav_order: 3
 
 </section>
 
-<section class="border-top pt-4" aria-labelledby="domestic-conference-presentations-abstracts">
+<hr class="border-0 my-5" style="border-top-color: var(--global-text-color-light)">
+
+<section aria-labelledby="domestic-conference-presentations-abstracts">
   <h2 id="domestic-conference-presentations-abstracts" class="mb-4">Domestic Conference Presentations &amp; Abstracts</h2>
 
 {% capture domestic_conference_publications %}
