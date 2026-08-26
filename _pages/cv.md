@@ -119,16 +119,85 @@ toc:
           {% assign section_entries = section_pair[1] %}
           <section class="mt-5" aria-labelledby="{{ section_title | slugify }}">
             <h2 id="{{ section_title | slugify }}" class="h3 font-weight-medium border-bottom pb-2 mb-3">{{ section_title }}</h2>
+            {% if section_title == 'Research Projects' %}
+              <p class="font-weight-light mb-2"><strong>Role:</strong> Participating Researcher unless otherwise noted.</p>
+            {% endif %}
             <ul class="card-text font-weight-light list-group list-group-flush">
               {% if section_title == 'Profile' %}
                 <li class="list-group-item px-0 py-3">
                   Human factors researcher studying human states, user experience, and human–technology interaction through physiological and behavioral measures. Research
                   interests span psychophysiological assessment, human factors and UX, and human–AI interaction.
                 </li>
+              {% elsif section_title == 'Professional Experience' %}
+                <li class="list-group-item px-0 py-3">
+                  <strong class="d-block mb-1">Incoming Postdoctoral Researcher</strong>
+                  <span class="d-block">MUSE Lab., Hanyang University</span>
+                  <em class="d-block mt-1">Expected start: September 2026.</em>
+                </li>
+                <li class="list-group-item px-0 py-3">
+                  <strong class="d-block mb-1">Researcher</strong>
+                  <span class="d-block">Korea Automobile Testing & Research Institute (KATRI), Korea Transportation Safety Authority</span>
+                  <em class="d-block mt-1">July 2013–April 2016</em>
+                  <ul class="mb-0 mt-2 pl-3">
+                    <li>
+                      Contributed to the project “Development of Certification Standard and Test Procedure for the Motor Vehicle Tuning,” focusing on automotive lighting
+                      systems.
+                    </li>
+                    <li>Conducted self-certification compliance investigations for motor vehicles and vehicle parts, focusing on automotive lighting systems.</li>
+                  </ul>
+                </li>
+              {% elsif section_title == 'Academic Background' %}
+                <li class="list-group-item px-0 py-3">
+                  <strong class="d-block mb-1">Ph.D. in Industrial and Management Engineering</strong>
+                  <span class="d-block">Hanyang University · September 2017–August 2026</span>
+                  <span class="d-block mt-2"
+                    ><strong>Dissertation:</strong> Machine Learning-Based Classification of High-Risk Gaming Disorder Groups Using EEG Relative Power Following In-Game
+                    Kill/Death Events: Exploration of Neurophysiological Candidate Parameters.</span
+                  >
+                  <span class="d-block mt-1"><strong>Advisors:</strong> Jeongeun Park and Jung-Yong Kim.</span>
+                </li>
+                <li class="list-group-item px-0 py-3">
+                  <strong class="d-block mb-1">Bachelor's degree in Mechanical Engineering</strong>
+                  <span class="d-block">Hanyang University ERICA · March 2007–August 2013</span>
+                  <span class="d-block mt-1"><strong>Second Major:</strong> Design Engineering.</span>
+                </li>
               {% elsif section_title == 'Research Interests' %}
                 <li class="list-group-item px-0 py-3">Human Factors & User Experience</li>
                 <li class="list-group-item px-0 py-3">Psychophysiological Assessment</li>
                 <li class="list-group-item px-0 py-3">Human–AI Interaction</li>
+              {% elsif section_title == 'Research Projects' %}
+                {% for entry in section_entries %}
+                  {% assign project_parts = entry.bullet | split: '**' %}
+                  {% assign project_metadata = project_parts[2] %}
+                  {% assign type_parts = project_metadata | split: '). Type / sponsor category: ' %}
+                  {% assign category_and_fields = type_parts[1] | split: '. Fields: ' %}
+                  <li class="list-group-item px-0 py-2">
+                    <div><strong>{{ project_parts[1] }}</strong> — <em>{{ type_parts[0] | remove_first: ' (' }}</em></div>
+                    <div class="small text-muted">{{ category_and_fields[0] }} · {{ category_and_fields[1] }}</div>
+                  </li>
+                {% endfor %}
+              {% elsif section_title == 'Journal Articles' or section_title == 'International Conference Papers & Abstracts' or section_title == 'Domestic Conference Presentations & Abstracts' %}
+                {% for entry in section_entries %}
+                  {% assign rendered_bullet = entry.bullet | markdownify | remove: '<p>' | remove: '</p>' %}
+                  {% assign highlighted_authors = rendered_bullet
+                    | replace: 'Sungkyun Im', '<strong>Sungkyun Im</strong>'
+                    | replace: '임성균', '<strong>임성균</strong>'
+                  %}
+                  <li class="list-group-item px-0 py-3">{{ highlighted_authors }}</li>
+                {% endfor %}
+              {% elsif section_title == 'Methods & Technical Expertise' %}
+                <li class="list-group-item px-0 py-2">
+                  <strong class="d-block mb-1">Physiological & Behavioral Measurement</strong>
+                  EEG · ECG/HRV · EMG · Eye Tracking · Questionnaires
+                </li>
+                <li class="list-group-item px-0 py-2">
+                  <strong class="d-block mb-1">Experimental & User Research</strong>
+                  Experimental Design · User Studies · Usability & UX Evaluation · Psychophysiological Evaluation
+                </li>
+                <li class="list-group-item px-0 py-2">
+                  <strong class="d-block mb-1">Quantitative Analysis</strong>
+                  Psychophysiological Signal Analysis · Statistical Modeling · Machine Learning
+                </li>
               {% else %}
                 {% for entry in section_entries %}
                   {% if entry.bullet %}
