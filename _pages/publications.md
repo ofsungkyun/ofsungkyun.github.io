@@ -21,6 +21,13 @@ nav_order: 3
 {% capture selected_publications %}
 {% bibliography --group_by none --query @*[selected=true]* %}
 {% endcapture %}
+{%
+  assign selected_publications = selected_publications
+    | replace: 'id="', 'id="selected-'
+    | replace: '<em>Sungkyun', '<strong>Sungkyun'
+    | replace: 'Im</em>', 'Im</strong>'
+    | replace: '임성균', '<strong>임성균</strong>'
+%}
 {{ selected_publications | replace: '<li>', '<li class="mb-4">' }}
 
 </section>
@@ -33,6 +40,9 @@ nav_order: 3
 {% endcapture %}
 {{
     journal_articles
+    | replace: '<em>Sungkyun', '<strong>Sungkyun'
+    | replace: 'Im</em>', 'Im</strong>'
+    | replace: '임성균', '<strong>임성균</strong>'
     | replace: '<h2 class="bibliography">', '<h3 class="bibliography h5 text-muted border-top pt-3 mt-4 mb-3 text-end">'
     | replace: '</h2>', '</h3>'
     | replace: '<li>', '<li class="mb-4">'
@@ -48,6 +58,9 @@ nav_order: 3
 {% endcapture %}
 {{
     international_conference_publications
+    | replace: '<em>Sungkyun', '<strong>Sungkyun'
+    | replace: 'Im</em>', 'Im</strong>'
+    | replace: '임성균', '<strong>임성균</strong>'
     | replace: '<h2 class="bibliography">', '<h3 class="bibliography h5 text-muted border-top pt-3 mt-4 mb-3 text-end">'
     | replace: '</h2>', '</h3>'
     | replace: '<li>', '<li class="mb-4">'
@@ -63,6 +76,9 @@ nav_order: 3
 {% endcapture %}
 {{
     domestic_conference_publications
+    | replace: '<em>Sungkyun', '<strong>Sungkyun'
+    | replace: 'Im</em>', 'Im</strong>'
+    | replace: '임성균', '<strong>임성균</strong>'
     | replace: '<h2 class="bibliography">', '<h3 class="bibliography h5 text-muted border-top pt-3 mt-4 mb-3 text-end">'
     | replace: '</h2>', '</h3>'
     | replace: '<li>', '<li class="mb-4">'
