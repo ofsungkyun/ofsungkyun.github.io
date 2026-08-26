@@ -2,14 +2,14 @@
 layout: page
 title: Research
 permalink: /research/
-description: Research areas, methods, and current directions in human factors, physiological computing, human-state assessment, and human–AI interaction.
+description: Research areas, methods, and current directions in human factors and user experience, psychophysiological assessment, and human–AI interaction.
 nav: true
 nav_order: 1
 ---
 
 ## Research Overview
 
-My research investigates how human states, experiences, and interactions with technology can be measured, modeled, and translated into better design and evaluation. I combine human-factors theory with multimodal physiological and behavioral data, controlled experiments, statistical modeling, and machine learning. The work is organized around three related areas: Human Factors & User Experience, Physiological Computing & Human-State Assessment, and Human–AI Interaction.
+My research investigates how human states, experiences, and interactions with technology can be measured, modeled, and translated into better design and evaluation. I combine human-factors theory with multimodal physiological and behavioral data, controlled experiments, statistical modeling, and machine learning. The work is organized around three related areas: Human Factors & User Experience, Psychophysiological Assessment, and Human–AI Interaction.
 
 ## Research Pillars
 
@@ -17,7 +17,7 @@ My research investigates how human states, experiences, and interactions with te
   <div class="col-12 col-md-4 mb-3">
     <div class="card h-100">
       <div class="card-body">
-        <strong>Physiological Computing & Human-State Assessment</strong>
+        <strong>Psychophysiological Assessment</strong>
         <p>Using EEG, ECG/HRV, EMG, eye tracking, and subjective measures to characterize human states, responses, and individual differences.</p>
         <a class="d-block py-2" href="#physiological-computing">View research area</a>
       </div>
@@ -43,7 +43,7 @@ My research investigates how human states, experiences, and interactions with te
   </div>
 </div>
 
-## Physiological Computing & Human-State Assessment {#physiological-computing}
+## Psychophysiological Assessment {#physiological-computing}
 
 I use physiological and behavioral signals to assess human states that are difficult to observe directly. My research integrates EEG, ECG/HRV, EMG, eye tracking, and subjective measures to examine gaming-disorder risk, stress, affect, fatigue, and cognitive or behavioral responses.
 
