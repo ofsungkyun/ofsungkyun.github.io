@@ -141,17 +141,39 @@ test("removed table-of-contents demo post does not expose inline-code fixtures",
   await expect(page.locator("main code, [role='main'] code")).toHaveCount(0);
 });
 
-test("projects use the current production hierarchy without demo hover cards", async ({ page }) => {
+test("projects use the simplified production hierarchy", async ({ page }) => {
   await preparePage(page, "light");
   const response = await page.goto("/al-folio/projects/", { waitUntil: "networkidle" });
   await stabilizeVisuals(page);
 
   expect(response).not.toBeNull();
   expect(response.status()).toBe(200);
-  await expect(page.getByRole("heading", { name: "Projects", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Featured Projects", exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "All Projects", exact: true })).toBeVisible();
-  await expect(page.locator(".projects .hoverable")).toHaveCount(0);
+  await expect(page.getByRole("heading", { level: 1, name: "Projects", exact: true })).toBeVisible();
+  await expect(
+    page.getByText(
+      "Research and applied projects spanning human factors and user experience, psychophysiological assessment, data-driven analysis, and human–AI interaction.",
+      { exact: true }
+    )
+  ).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Featured Projects", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "All Projects", exact: true })).toHaveCount(0);
+
+  const projectRecords = page.locator("article[aria-labelledby]");
+  const projectAnchors = projectRecords.locator("h2[id]");
+
+  await expect(page.locator("article.card")).toHaveCount(0);
+  await expect(projectRecords).toHaveCount(12);
+  await expect(projectAnchors).toHaveCount(12);
+  expect(new Set(await projectAnchors.evaluateAll((headings) => headings.map((heading) => heading.id))).size).toBe(12);
+  await expect(projectRecords.getByText("Status", { exact: true })).toHaveCount(0);
+  await expect(page.locator(".hoverable")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Disclosure", exact: true })).toBeVisible();
+  await expect(
+    page.getByText(
+      "Project descriptions include only publicly shareable information. Confidential details, funding amounts, and internal results are omitted.",
+      { exact: true }
+    )
+  ).toBeVisible();
 });
 
 test("removed teaching demo route stays unavailable", async ({ page }) => {
