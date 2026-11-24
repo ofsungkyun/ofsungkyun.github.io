@@ -3,7 +3,7 @@ layout: about
 title: About
 permalink: /
 subtitle: >
-  <strong>Incoming Postdoctoral Researcher</strong><br>
+  <strong>Postdoctoral Researcher</strong><br>
   MUSE Lab., Hanyang University
 
 profile: false

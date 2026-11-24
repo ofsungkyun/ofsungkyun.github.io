@@ -130,9 +130,8 @@ toc:
                 </li>
               {% elsif section_title == 'Professional Experience' %}
                 <li class="list-group-item px-0 py-3">
-                  <strong class="d-block mb-1">Incoming Postdoctoral Researcher</strong>
+                  <strong class="d-block mb-1">Postdoctoral Researcher</strong>
                   <span class="d-block">MUSE Lab., Hanyang University</span>
-                  <em class="d-block mt-1">Expected start: September 2026.</em>
                 </li>
                 <li class="list-group-item px-0 py-3">
                   <strong class="d-block mb-1">Researcher</strong>
